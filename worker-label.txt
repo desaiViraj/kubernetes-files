@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------
+ADD LABEL TO WORKER NODE:
+
+----BEFORE-----
+$ kubectl get nodes
+NAME                 STATUS   ROLES    AGE     VERSION
+master.example.com   Ready    master   10d     v1.18.3
+node01.example.com   Ready    <none>   6m35s   v1.18.3
+---------------
+RUN BELOW COMMAND TO LABEL YOUR WORKER NODE
+#kubectl label node <worker-node> node-role.kubernetes.io/worker=<name>
+Example:
+#kubectl label node node01.example.com node-role.kubernetes.io/worker=node01
+---------------
+
+
+-----AFTER-----
+$ kubectl get nodes
+NAME                 STATUS   ROLES    AGE     VERSION
+master.example.com   Ready    master   10d     v1.18.3
+node01.example.com   Ready    worker   7m17s   v1.18.3
+---------------
