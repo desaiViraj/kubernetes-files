@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: nfs-pv
+spec:
+    capacity:
+        storage: 2Gi
+    accessModes:
+        - ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    nfs:
+       path: /nfs_share
+       server: 172.31.44.112
+       readOnly: false
+
