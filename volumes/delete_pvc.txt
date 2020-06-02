@@ -1,0 +1,1 @@
+kubectl patch pvc pv-claim -p '{"metadata":{"finalizers": []}}' --type=merge
